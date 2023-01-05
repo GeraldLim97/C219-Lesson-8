@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me</title>
+
+    <style>
+        div {
+           text-align: center;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-size: 60px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .homes .number-animate,
+        .hours .number-animate {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+
+    <div>
+        <div class="animation-wrapper"> 
+            <div class="stagger-visualizer">
+            <div>        
+        </div>
+        <h1>Gerald</h1>
+        <img src="me.jpg">
+        <p>2nd Year student In RP</p>
+        <p> Hi, my name is Gerald and I'm a student in RP.</p>
+    </div>
+
+    <div class="div2">
+
+
+        <p class="number programs"><span class="number-animate" data-end-value="152" data-duration="5000">1</span>Years Old</p>
+
+    </div>
+
+
+    <script>
+        anime({
+    targets: "img",
+    translateX: 150,
+    height: "80px",
+    width: "80px",
+    duration: 2000,
+    easing: "linear",
+    direction: "alternate",
+    loop: true,
+        });
+
+        document.querySelectorAll('.number-animate').forEach( (el) => {
+  const endValue = el.getAttribute('data-end-value');
+  const incrementValue = el.getAttribute('data-increment');
+  const durationValue = el.getAttribute('data-duration');
+  
+  if (endValue) numberAnimation(el, endValue, incrementValue, durationValue);
+  
+});
+
+
+function numberAnimation(el, endValue, incrementor, duration) {
+  anime({
+    targets: el,
+    textContent: endValue,
+    round: incrementor ? 1/incrementor : 1/5,
+    easing: 'easeInOutQuad',
+    duration: duration ? duration : 4000,
+  });
+}
+</script>
+</body>
+</html>
